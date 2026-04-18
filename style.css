@@ -73,12 +73,119 @@ body {
 
 .chat-window {
   padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
-  height: 250px;
+  height: 400px;
   overflow-y: auto;
   background: #fafafa;
   margin-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Chat message styling */
+.chat-message {
+  margin-bottom: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  line-height: 1.7;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  background: #f0f0f0;
+  margin-left: 15%;
+  border: 1px solid #ddd;
+}
+
+.ai-message {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+  margin-right: 15%;
+  border: 1px solid #c8e6c9;
+}
+
+.message-header {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.message-header i {
+  color: #4caf50;
+  font-size: 14px;
+}
+
+.message-content {
+  font-size: 15px;
+  color: #222;
+}
+
+.message-content p {
+  margin: 0 0 12px 0;
+  line-height: 1.7;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Chat list items (bullets and numbered) */
+.chat-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.list-number {
+  font-weight: 600;
+  color: #000;
+  flex-shrink: 0;
+  min-width: 24px;
+}
+
+.bullet-point {
+  font-size: 6px;
+  color: #4caf50;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* Chat headings */
+.chat-heading {
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+  margin: 16px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.chat-heading-small {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 12px 0 8px 0;
+}
+
+.message-content strong {
+  font-weight: 600;
+  color: #000;
 }
 
 /* placeholder message */
@@ -186,6 +293,21 @@ body {
   display: flex;
   gap: 15px;
   min-height: 160px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for product cards */
+.product-card:hover {
+  border-color: #666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected state for product cards */
+.product-card.selected {
+  border: 2px solid #000;
+  background: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
@@ -201,6 +323,113 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 110px;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Info button styling */
+.info-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.info-btn:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.info-btn:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Active state when description is shown */
+.info-btn[aria-expanded="true"] {
+  color: #000;
+  background: #f0f0f0;
+  border-radius: 50%;
+}
+
+/* Product description styling */
+.product-description {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  animation: slideDown 0.3s ease;
+}
+
+.description-content {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 12px;
+  border-left: 3px solid #000;
+}
+
+.description-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #000;
+  font-size: 14px;
+}
+
+.description-header i {
+  font-size: 16px;
+}
+
+.description-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.description-item:last-child {
+  margin-bottom: 0;
+}
+
+.description-icon {
+  color: #4caf50;
+  font-size: 12px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.description-item span {
+  font-size: 13px;
+  color: #333;
+  flex: 1;
+}
+
+/* Animation for description reveal */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+  }
 }
 
 .product-card h3 {
@@ -221,15 +450,62 @@ body {
   border-radius: 8px;
 }
 
+.selected-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
 .selected-products h2 {
   font-size: 20px;
-  margin-bottom: 20px;
+  margin: 0;
+}
+
+.clear-all-btn {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clear-all-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+}
+
+.clear-all-btn:active {
+  transform: translateY(0);
+}
+
+.clear-all-btn i {
+  font-size: 13px;
 }
 
 #selectedProductsList {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+/* Remove button hover effect in selected products list */
+.remove-product-btn:hover {
+  color: #000 !important;
+  transform: scale(1.1);
+}
+
+.remove-product-btn:active {
+  transform: scale(0.95);
 }
 
 .generate-btn {

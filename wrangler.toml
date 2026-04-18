@@ -1,0 +1,28 @@
+# Cloudflare Worker Configuration File
+# This file configures your Cloudflare Worker deployment
+# Learn more: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "loreal-openai-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Account ID (get this from your Cloudflare dashboard)
+# account_id = "your-account-id-here"
+
+# Workers Free Tier Settings
+workers_dev = true
+
+# Environment Variables (non-secret)
+# Secrets like API keys should be set using: wrangler secret put OPENAI_API_KEY
+[vars]
+# Add any non-secret environment variables here if needed
+
+# Deployment settings
+[build]
+command = ""
+
+# Production environment (optional)
+# [env.production]
+# name = "loreal-openai-proxy-prod"
+# workers_dev = false
+# route = "https://api.yourdomain.com/*"
